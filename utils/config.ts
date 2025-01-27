@@ -29,6 +29,7 @@ const config = {
         api: {
             baseURL: process.env.API_BASE_URL || "",
             token: process.env.API_TOKEN || "",
+            username: process.env.GITHUB_USERNAME || "",
             headers: {
                 Authorization: `token ${process.env.API_TOKEN}`,
                 Accept: "application/vnd.github+json",
