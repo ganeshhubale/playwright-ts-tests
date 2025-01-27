@@ -1,22 +1,19 @@
 import {expect} from "@playwright/test";
-import {test} from "../../../fixtures/playwright.fixtures";
-import { apiClient } from "../../../utils/api/apiClient";
-import { generateUserData } from "../../../utils/dataGenerator";
+import {test} from "../../../../fixtures/playwright.fixtures";
+import { apiClient } from "../../../../utils/api/apiClient";
+import { generateUserData } from "../../../../utils/dataGenerator";
+import orgData from "../../../../test-data/api/orgData.json";
 
 const repo = generateUserData();
 
-test.describe("Repository API", () => {
+test.describe("Organization repository API", () => {
 
-    test("Create a new repository", async ({request}) => {
+    test("Create a new organization repository", async ({request}) => {
 
-            // Make API call to create repo
-            const response = await apiClient.post(request, "/user/repos", 
+            const response = await apiClient.post(request, `/orgs/${orgData.name}/repos`, 
                 {
                 "name": repo.repoName,
-                "description": repo.description,
-                "homepage":"https://github.com",
-                "private": false,
-                "is_template": false
+                "description": repo.description
             });
 
             expect(response.status()).toBe(201);

@@ -1,0 +1,8 @@
+{
+    "name": "AutomationFrameworks",
+    "repositories": [
+        "Jest",
+        "Cypress",
+        "Protractor"
+    ]
+}

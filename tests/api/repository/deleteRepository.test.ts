@@ -6,7 +6,7 @@ import config from "../../../utils/config";
 const username =  config.api.username;
 const repo = generateUserData();
 
-test.describe("Delete repository API", ()=> {
+test.describe("Repository API", ()=> {
 
     test.beforeAll("SetUp - Create repository", async ({request}) => {
     

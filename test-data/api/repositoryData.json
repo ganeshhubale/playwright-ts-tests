@@ -1,4 +1,10 @@
 {
     "name": "test-sample-repo",
-    "description": "my sample repo"
+    "description": "my sample repo",
+    "branch": "main",
+    "issue": [
+        "Finalize automation framework",
+        "Fix readme"
+
+    ]
 }
