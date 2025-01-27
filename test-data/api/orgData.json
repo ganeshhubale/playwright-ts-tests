@@ -1,8 +1,8 @@
 {
-    "name": "AutomationFrameworks",
+    "name": "automationorgtesting",
     "repositories": [
         "Jest",
-        "Cypress",
+        "testRepo",
         "Protractor"
     ]
 }

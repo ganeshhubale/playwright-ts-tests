@@ -13,3 +13,12 @@ const generateUserData = () => {
     };
 };
 export {generateUserData};
+
+const generateRepoData = () => {
+    return {
+        name: "repo_" + faker.word.sample(6),
+        description: faker.lorem.sentence(),
+        branchName: faker.word.sample(5)
+    };
+};
+export {generateRepoData};
