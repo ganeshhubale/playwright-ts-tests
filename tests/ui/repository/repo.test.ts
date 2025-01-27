@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import bookstorePage from "../../pages/bookstorePage";
-import booksdata from "../../test-data/books.json";
+import bookstorePage from "../../../pages/bookstorePage";
+import booksdata from "../../../test-data/books.json";
 
-test.describe("Book store scenarios", () => {
+test.describe("Repository scenarios", () => {
 
-    test("Search by book name", async ({ page }) => {
+    test("Create a new repository", async ({ page }) => {
 
         const bookstore = new bookstorePage(page);
 
@@ -30,4 +30,9 @@ test.describe("Book store scenarios", () => {
         }
     });
 
+    test("Delete a repository", async ({ page }) => {
+    });
+
+    test("Update a repository", async ({ page }) => {
+    });
 });

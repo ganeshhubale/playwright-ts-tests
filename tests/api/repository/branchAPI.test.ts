@@ -1,9 +1,13 @@
 import {expect, test} from "@playwright/test";
-import { generateUserData } from "../../utils/dataGenerator";
+import { generateUserData } from "../../../utils/dataGenerator";
 
-test.describe("Authentication API scenarios", () => {
+test.describe("Branches API scenarios", () => {
 
-    test("Create new user", async ({request}) => {
+    test("List branches of repository", async ({request}) => {
+
+    });
+
+    test("Rename branch", async ({request}) => {
 
         const userData = generateUserData();
 
@@ -34,5 +38,6 @@ test.describe("Authentication API scenarios", () => {
         expect(apiResponse.status()).toBe(200);
 
     });
+
 
 });

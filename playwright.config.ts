@@ -1,11 +1,11 @@
 import { chromium, PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-    testMatch:["tests/api/authAPI.test.ts"],
+    testMatch:["tests/api/repository/repoAPI.test.ts"],
     fullyParallel: true,
     workers: 4,
     use: {
-        baseURL: "https://demoqa.com",
+        baseURL: "https://api.github.com",
         headless: false,
         screenshot: 'on-first-failure',
         video: 'off',
