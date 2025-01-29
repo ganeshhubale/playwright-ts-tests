@@ -6,7 +6,7 @@ import repositoriesPage from "../../../pages/repositoriesPage";
 import {generateRepoData} from "../../../utils/dataGenerator";
 import { apiClient } from "../../../utils/api/apiClient";
 
-test.describe("Repository", () => {
+test.describe("Repository", { tag: '@ui' }, () => {
 
     const repo = generateRepoData();
     let repoName = repo.name;

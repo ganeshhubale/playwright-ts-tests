@@ -5,9 +5,9 @@ import config from "../../../utils/config";
 import { uiHelper } from "../../../utils/ui/uiHelper";
 import dashboardPage from "../../../pages/dashboardPage";
 
-test.describe("GitHub Authentication", () => {
+test.describe("GitHub Authentication", { tag: '@ui' }, () => {
 
-    test("User Login", async ({ page, uiBaseURL }) => {
+    test("User Login", {tag: "@smoke"}, async ({ page, uiBaseURL }) => {
         const login = new LoginPage(page, uiBaseURL);
     
         await login.goto();
@@ -27,7 +27,7 @@ test.describe("GitHub Authentication", () => {
         await expect(pageTitle).toContainText("Dashboard");
     });
 
-    test("Invalid User Login", async ({ page, uiBaseURL }) => {
+    test("Invalid User Login", {tag: "@smoke"}, async ({ page, uiBaseURL }) => {
         const login = new LoginPage(page, uiBaseURL);
     
         await login.goto();
@@ -41,7 +41,7 @@ test.describe("GitHub Authentication", () => {
         await expect(errorMessage).toContainText("Incorrect username or password.");
     });
 
-    test("User Logout", async ({ page, uiBaseURL }) => {
+    test("User Logout", {tag: "@smoke"}, async ({ page, uiBaseURL }) => {
         await uiHelper.login(page, uiBaseURL);
         
         const dashboard = new dashboardPage(page, uiBaseURL);

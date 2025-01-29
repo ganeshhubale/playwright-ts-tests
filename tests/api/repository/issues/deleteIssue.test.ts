@@ -5,7 +5,7 @@ import { generateUserData } from "../../../../utils/dataGenerator";
 
 import { apiClient } from "../../../../utils/api/apiClient";
 
-test.describe("Issues API", () => {
+test.describe("Issues API", { tag: '@api' }, () => {
 
     let issueNumber: BigInteger;
 

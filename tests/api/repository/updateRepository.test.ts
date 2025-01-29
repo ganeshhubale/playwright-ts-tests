@@ -6,7 +6,7 @@ import { apiClient } from "../../../utils/api/apiClient";
 const repo = generateUserData();
 const updatedRepoName = `update_${repo.repoName}`;
 
-test.describe("Repository API", () => {
+test.describe("Repository API", { tag: '@api' }, () => {
 
     test.beforeAll("SetUp - Create repository", async ({request}) => {
 

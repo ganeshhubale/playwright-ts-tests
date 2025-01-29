@@ -4,7 +4,7 @@ import { generateUserData } from "../../../../utils/dataGenerator";
 import repositoryData from "../../../../test-data/api/repositoryData.json"
 import { apiClient } from "../../../../utils/api/apiClient";
 
-test.describe("Branches API", () => {
+test.describe("Branches API", { tag: '@api' }, () => {
 
     let nonMainBranches: string[] = [];
 

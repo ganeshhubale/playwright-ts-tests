@@ -4,11 +4,11 @@ import repositoryData from "../../../../test-data/api/repositoryData.json"
 import { generateUserData } from "../../../../utils/dataGenerator";
 import { apiClient } from "../../../../utils/api/apiClient";
 
-test.describe("Issues API", () => {
+test.describe("Issues API", { tag: '@api' }, () => {
 
     let issueNumber: BigInteger;
 
-    test("Create new issue", async ({request, GITHUB_USERNAME}) => {
+    test("Create new issue", {tag: "@smoke"}, async ({request, GITHUB_USERNAME}) => {
 
         const issue = generateUserData();
         const issueTitle = `Found a bug ${issue.randomWord}`;

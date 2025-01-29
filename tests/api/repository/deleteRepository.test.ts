@@ -6,7 +6,7 @@ import config from "../../../utils/config";
 const username =  config.api.username;
 const repo = generateUserData();
 
-test.describe("Repository API", ()=> {
+test.describe("Repository API", { tag: '@api' }, ()=> {
 
         test.beforeAll("SetUp - Create repository", async ({request}) => {
                 await apiClient.post(request, "/user/repos", 

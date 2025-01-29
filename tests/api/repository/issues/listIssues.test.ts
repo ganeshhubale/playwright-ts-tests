@@ -4,7 +4,7 @@ import repositoryData from "../../../../test-data/api/repositoryData.json"
 
 import { apiClient } from "../../../../utils/api/apiClient";
 
-test.describe("Issues API", () => {
+test.describe("Issues API", { tag: '@api' }, () => {
 
     test("List repository issues", async ({request, GITHUB_USERNAME}) => {
 

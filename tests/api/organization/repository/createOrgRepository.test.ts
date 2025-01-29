@@ -6,9 +6,9 @@ import orgData from "../../../../test-data/api/orgData.json";
 
 const repo = generateUserData();
 
-test.describe("Organization repository API", () => {
+test.describe("Organization repository API", { tag: '@api' }, () => {
 
-    test("Create a new organization repository", async ({request}) => {
+    test("Create a new organization repository", {tag: "@smoke"}, async ({request}) => {
 
             const response = await apiClient.post(request, `/orgs/${orgData.name}/repos`, 
                 {

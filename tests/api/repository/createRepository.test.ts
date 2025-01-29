@@ -5,9 +5,9 @@ import { generateUserData } from "../../../utils/dataGenerator";
 
 const repo = generateUserData();
 
-test.describe("Repository API", () => {
+test.describe("Repository API", { tag: '@api' }, () => {
 
-    test("Create a new repository", async ({request}) => {
+    test("Create a new repository", {tag: "@smoke"}, async ({request}) => {
 
             // Make API call to create repo
             const response = await apiClient.post(request, "/user/repos", 

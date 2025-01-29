@@ -1,7 +1,7 @@
 import { chromium, PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-    testMatch:["tests/ui/repository/createRepository.test.ts"],
+    testMatch:["tests/**/*.test.ts"],
     fullyParallel: true,
     workers: 4,
     use: {

@@ -4,7 +4,7 @@ import dashboardPage from "../../../pages/dashboardPage";
 import repositoryData from "../../../test-data/ui/repositoryData.json";
 import { uiHelper } from "../../../utils/ui/uiHelper";
 
-test.describe("Repository", () => {
+test.describe("Repository", { tag: "@ui" }, () => {
     test.beforeEach("SetUp - Create repository", async({page, uiBaseURL}) => {
         await uiHelper.login(page, uiBaseURL);
 
