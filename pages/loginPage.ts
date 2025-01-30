@@ -15,8 +15,21 @@ export default class LoginPage{
     async enterPassword(password: string){
         await this.page.locator("#password").fill(password)
     }
-
+    
     async clickSignIn(){
         await this.page.locator("input[name='commit']").click()
     }
+
+    async clickPasskey(){
+        await this.page.locator(`//a[@data-test-selector='recovery-code-link']`).click()
+    }
+
+    async enterCode(passkey: string){
+        await this.page.locator("#recovery_code").fill(passkey);
+    }
+
+    async clickVerify(){
+        await this.page.locator("//button[contains(text(), 'Verify')]").click();
+    }
+
 }

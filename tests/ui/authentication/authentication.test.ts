@@ -7,13 +7,18 @@ import dashboardPage from "../../../pages/dashboardPage";
 
 test.describe("GitHub Authentication", { tag: '@ui' }, () => {
 
-    test("User Login", {tag: "@smoke"}, async ({ page, uiBaseURL }) => {
+    test("User Login", {tag: "@smokeok"}, async ({ page, uiBaseURL }) => {
         const login = new LoginPage(page, uiBaseURL);
     
         await login.goto();
         await login.enterUsername(config.ui.username);
         await login.enterPassword(config.ui.password);
         await login.clickSignIn();
+
+        // await login.clickPasskey();
+        // await page.waitForTimeout(2000);
+        // await login.enterCode(config.ui.passKey)
+        // await login.clickVerify();
     
         // Redirect to the GitHub dashboard
         await page.goto("https://github.com/dashboard");
@@ -34,7 +39,6 @@ test.describe("GitHub Authentication", { tag: '@ui' }, () => {
         await login.enterUsername("invalidUser");
         await login.enterPassword("invalidPassword");
         await login.clickSignIn();
-    
     
         // Assert warning
         const errorMessage = page.locator("div[role='alert']");
