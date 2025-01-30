@@ -1,8 +1,12 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
+
+// type Environment = "staging" | "production";
 
 // Load environment variables from the .env file
 dotenv.config();
 
+// Define the allowed environments
+type Environment = "staging" | "production";
 
 const config = {
     staging: {
@@ -10,10 +14,12 @@ const config = {
             baseURL: process.env.UI_BASE_URL_STAGE || "",
             username: process.env.UI_USERNAME_STAGE || "",
             password: process.env.UI_PASSWORD_STAGE || "",
+            passKey: process.env.PASS_KEY || "",
         },
         api: {
             baseURL: process.env.API_BASE_URL_STAGE || "",
             token: process.env.API_TOKEN_STAGE || "",
+            username: process.env.GITHUB_USERNAME_STAGE || "",
             headers: {
                 Authorization: `token ${process.env.API_TOKEN_STAGE}`,
                 Accept: "application/vnd.github+json",
@@ -25,6 +31,7 @@ const config = {
             baseURL: process.env.UI_BASE_URL || "",
             username: process.env.UI_USERNAME || "",
             password: process.env.UI_PASSWORD || "",
+            passKey: process.env.PASS_KEY || "",
         },
         api: {
             baseURL: process.env.API_BASE_URL || "",
@@ -38,7 +45,7 @@ const config = {
     },
 };
 
-const environment = process.env.ENV || "production";
+const environment = (process.env.ENV as Environment) || "production";
 
 // Validate the environment key
 if (!config[environment]) {

@@ -1,7 +1,7 @@
 import {expect} from "@playwright/test";
 import {test} from "../../../../fixtures/playwright.fixtures";
 import { generateUserData } from "../../../../utils/dataGenerator";
-import repositoryData from "../../../../test-data/api/repositoryData.json"
+import repositoryAPIData from "../../../../test-data/api/repositoryAPIData.json"
 import { apiClient } from "../../../../utils/api/apiClient";
 
 test.describe("Branches API", { tag: '@api' }, () => {
@@ -11,7 +11,7 @@ test.describe("Branches API", { tag: '@api' }, () => {
     test.beforeAll("SetUp - Get a branch to rename", async ({request, GITHUB_USERNAME}) => {
 
         const response = await apiClient.get(request, 
-            `/repos/${GITHUB_USERNAME}/${repositoryData.name}/branches`);
+            `/repos/${GITHUB_USERNAME}/${repositoryAPIData.name}/branches`);
 
         const apiResponseBody = await response.json();
         const branchNames = apiResponseBody.map((branch) => branch.name);

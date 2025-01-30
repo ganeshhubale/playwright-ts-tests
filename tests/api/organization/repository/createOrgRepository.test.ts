@@ -2,7 +2,7 @@ import {expect} from "@playwright/test";
 import {test} from "../../../../fixtures/playwright.fixtures";
 import { apiClient } from "../../../../utils/api/apiClient";
 import { generateUserData } from "../../../../utils/dataGenerator";
-import orgData from "../../../../test-data/api/orgData.json";
+import orgAPIData from "../../../../test-data/api/orgAPIData.json";
 
 const repo = generateUserData();
 
@@ -10,7 +10,7 @@ test.describe("Organization repository API", { tag: '@api' }, () => {
 
     test("Create a new organization repository", {tag: "@smoke"}, async ({request}) => {
 
-            const response = await apiClient.post(request, `/orgs/${orgData.name}/repos`, 
+            const response = await apiClient.post(request, `/orgs/${orgAPIData.name}/repos`, 
                 {
                 "name": repo.repoName,
                 "description": repo.description
