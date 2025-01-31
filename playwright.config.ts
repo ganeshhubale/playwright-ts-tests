@@ -4,7 +4,7 @@ import config from './utils/config';
 const playwrightConfig: PlaywrightTestConfig = {
     testMatch: ["tests/**/*.test.ts"],
     fullyParallel: true,
-    workers: 4,
+    workers: 4, // TODO: configure setup of worker on the basis of test execution count
 
     // Global settings for all projects
     use: {

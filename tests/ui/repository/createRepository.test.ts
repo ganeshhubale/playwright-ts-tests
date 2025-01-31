@@ -37,6 +37,8 @@ test.describe("Repository", { tag: '@ui' }, () => {
         const apiResponseBody = await response.json();
         const repoNames = apiResponseBody.map((repo) => repo.name);
         expect(repoNames).toContain(repoName);
+
+        // TODO: make a GET call
     });
 
     test.afterAll("CleanUp - Delete repository", async ({request, GITHUB_USERNAME}) => {

@@ -17,3 +17,7 @@ Add tsconfig.js
     "exclude": ["node_modules", "tests", "test-data"] // Exclude 'node_modules' and 'tests'
 }
 ```
+
+
+elk kibana  docker k8s
+3rd party integration - JIRA

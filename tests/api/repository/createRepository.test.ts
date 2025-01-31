@@ -26,6 +26,8 @@ test.describe("Repository API", { tag: '@api' }, () => {
             expect(apiResponseBody.name).toBe(repo.repoName);
             expect(apiResponseBody.description).toBe(repo.description);
 
+            // TODO: Make a get call for confirmation if repo created
+
     });
 
     test.afterAll("CleanUp - Delete repository", async ({request, GITHUB_USERNAME})=>{
