@@ -27,5 +27,7 @@ test('Amazon search - items without sponsored tags', { tag: '@others' }, async (
         .map(element => element.textContent) 
     )
     console.log("Sponsored iPhones:- ");
+
+    
     console.log(names)
 })
