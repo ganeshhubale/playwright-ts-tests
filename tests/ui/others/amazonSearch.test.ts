@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from "../../../fixtures/playwright.fixtures";
 
-test('Amazon search - items without sponsored tags ', { tag: '@others' }, async ({page}) => { 
+test('Amazon search - items without sponsored val ', { tag: '@others' }, async ({page}) => { 
 
     await page.goto("https://amazon.in");
     await page.locator("//input[@role='searchbox']").fill("iPhone");
