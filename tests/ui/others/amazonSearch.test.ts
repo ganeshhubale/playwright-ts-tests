@@ -16,7 +16,8 @@ test('Amazon search - items without sponsored tags', { tag: '@others' }, async (
         list => list.filter(element => !element.querySelector(".puis-label-popover-default"))
         .map(element => element.textContent)
     );
-    console.log("Un-sponsored iPhones:- ");
+    console.log("Un-sponsored iPhones:-  ");
+    
     console.table(texts);
 
     // Fetch iPhones with tag sponsored
