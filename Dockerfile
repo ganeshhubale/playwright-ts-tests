@@ -18,3 +18,10 @@ COPY . .
 
 # Command to run the tests (replace with your test script command)
 CMD ["npm", "test"]
+
+
+# FROM mcr.microsoft.com/playwright:v1.40.0
+# WORKDIR /app
+# COPY . .
+# RUN npm install
+# ENTRYPOINT ["npx", "playwright", "test"]
