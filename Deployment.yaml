@@ -1,11 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playwright-deployment
-  labels:
-    app: playwright
+  name: playwright-tests
 spec:
-  replicas: 1  # Number of replicas to run
+  replicas: 1
   selector:
     matchLabels:
       app: playwright
@@ -15,26 +13,6 @@ spec:
         app: playwright
     spec:
       containers:
-        - name: playwright
-          image: ganeshdocker123/playwright-tests:latest 
-          ports:
-            - containerPort: 8080  # Adjust if necessary for your app
-          volumeMounts:
-            - name: playwright-volume
-              mountPath: /app
-      volumes:
-        - name: playwright-volume
-          emptyDir: {}  # Empty directory for temporary storage if needed
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: playwright-service
-spec:
-  selector:
-    app: playwright
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080  # Same as containerPort in the deployment
-  type: ClusterIP
+      - name: playwright
+        image: ganeshdocker123/playwright-tests:latest
+        command: ["npx", "playwright", "test"]
