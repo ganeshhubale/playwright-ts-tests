@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "ganeshdocker123/test-image"
+        DOCKER_IMAGE = "ganeshdocker123/playwright-tests"
     }
 
     stages {
@@ -29,14 +29,35 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy Playwright Test Runner in Minikube') {
+            steps {
+                sh 'kubectl apply -f playwright-deployment.yaml'
+            }
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+                script {
+                    sh '''
+                    kubectl wait --for=condition=ready pod -l app=playwright --timeout=120s
+                    kubectl exec -it $(kubectl get pod -l app=playwright -o jsonpath="{.items[0].metadata.name}") -- npx playwright test --grep @others --project="UI - Chromium"
+                    '''
+                }
+            }
+        }
     }
 
     post {
+        always {
+            archiveArtifacts 'test-results/*.png'
+            junit 'test-results/*.xml'
+        }
         success {
-            echo '✅ Docker image built and pushed successfully!'
+            echo '✅ Playwright tests passed!'
         }
         failure {
-            echo '❌ Build failed. Check logs!'
+            echo '❌ Tests failed! Check logs.'
         }
     }
 }
