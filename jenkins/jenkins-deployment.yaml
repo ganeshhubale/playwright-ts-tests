@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkinsci/blueocean  # Includes Docker
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+            - name: jenkins-storage
+              mountPath: /var/jenkins_home
+        - name: dind
+          image: docker:dind
+          securityContext:
+            privileged: true
+          command: ["dockerd", "--host=tcp://0.0.0.0:2375"]
+      volumes:
+        - name: docker-sock
+          emptyDir: {}
+        - name: jenkins-storage
+          persistentVolumeClaim:
+            claimName: jenkins-pvc
